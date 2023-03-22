@@ -1,0 +1,9 @@
+動画ダウンロード
+yt-dlp.exe -P .\videos
+
+
+Stable Diffusion モデル 保存ディレクトリ
+/content/stable-diffusion-webui/models/Stable-diffusion/
+
+Stable Diffusion VAE 保存ディレクトリ
+/content/stable-diffusion-webui/models/VAE/
