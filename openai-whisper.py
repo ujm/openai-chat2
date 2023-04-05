@@ -14,5 +14,4 @@ conversation = [{"role": "system", "content": "日本語翻訳"}]
 conversation.append({"role": "user", "content": translation})
 
 completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=conversation)
-#print(completion.choices[0].message.content)
 print(completion.choices[0].message.content.replace("。", "。\n"))
