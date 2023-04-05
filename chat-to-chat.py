@@ -1,7 +1,6 @@
 import openai
 import os
 
-#api_key = "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"
 with open('key.txt', 'r') as f:
     # ファイルの内容を読み込み、変数に代入する
     api_key = f.read()
