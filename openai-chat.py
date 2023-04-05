@@ -1,10 +1,12 @@
 import openai
 import os
 
-api_key = "Your OpenAI-API-KEY"
+with open('key.txt', 'r') as f:
+    # ファイルの内容を読み込み、変数に代入する
+    api_key = f.read()
 
 openai.api_key = api_key
-print('AI とのチャットの始まりです。[終了するには \"...\" を入力してください。]\n\n')
+print('[終了するには \"bye\" と入力してください。]\n\n')
 message = {"role":"user", "content":""}
 conversation = [{"role": "system", "content": "日本語として回答して"}]
 
