@@ -1,7 +1,7 @@
 import openai
 import os
 
-api_key = "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"
+api_key = "Your OpenAI-API-KEY"
 
 openai.api_key = api_key
 print('AI とのチャットの始まりです。[終了するには \"...\" を入力してください。]\n\n')
