@@ -6,8 +6,9 @@ api_key = os.environ['OPENAI_API_KEY']
 
 openai.api_key = api_key
 
+print('[終了するには \"bye\" と入力してください。]\n\n')
 message = {"role":"user", "content":""}
-conversation = [{"role": "system", "content": "日本語として回答して"}]
+conversation = [{"role": "system", "content": "システムエンジニア, 日本語, 手順を説明"}]
 
 while(message["content"]!="bye"):
     input_str = ""
@@ -25,19 +26,14 @@ while(message["content"]!="bye"):
     message = {"role":"user", "content":input_str};
     conversation.append(message)
 
-    print('-------------------------')
-    print(conversation)
-    print('-------------------------')
-
     while True:
         try:
             completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=conversation)
-#            message = completion.choices[0].message.content
             break
         except:
             time.sleep(5)
-            print('負荷が高いため処理を待っています')
+            print('処理中...')
             continue
- 
+
     print(f"アシスタント: {completion.choices[0].message.content}\n")
-    conversation.append(completion.choices[0].message.content)
+    conversation.append(completion.choices[0].message)
