@@ -1,7 +1,10 @@
 import openai
 import sys
+import os
 
-openai.api_key = 'Your OpenAI-API-KEY'
+api_key = os.environ['OPENAI_API_KEY']
+
+openai.api_key = api_key
 
 sound_path = sys.argv[1]
 
