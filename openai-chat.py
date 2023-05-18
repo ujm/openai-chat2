@@ -1,6 +1,7 @@
 import openai
 import os
 import time
+import pickle
 
 api_key = os.environ['OPENAI_API_KEY']
 
@@ -10,7 +11,7 @@ print('[終了するには \"ctrl+c\" と入力してください。]\n\n')
 message = {"role":"user", "content":""}
 conversation = [{"role": "system", "content": "日本語"}]
 
-while(message["content"]!="bye"):
+while True:
     input_str = ""
     while True:
         if input_str == "":
@@ -35,5 +36,16 @@ while(message["content"]!="bye"):
             print('処理中...')
             continue
 
+    if(len(conversation)==2):
+        with open('my_array.pickle', 'wb') as f:
+            pickle.dump(conversation, f)
+
+    print(len(conversation))
     print(f"アシスタント: {completion.choices[0].message.content}\n")
+    print('-------------------- total_tokens を表示--------------------')
+    print(completion.usage.total_tokens)
+
+    if(completion.usage.total_tokens == 4097) :
+        del conversation[0]
+        
     conversation.append(completion.choices[0].message)
