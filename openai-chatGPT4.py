@@ -14,14 +14,14 @@ EXIT_MESSAGE = '[終了するには "ctrl+c" と入力してください。]\n\n
 print(EXIT_MESSAGE)
 
 message = {"role":"user", "content":""}
-conversation = [{"role": "system", "content": ""}]
+conversation = [{"role": "system", "content": "ファイルストレージサービスの調査を手伝います。"}]
 
 while True:
     input_str = ""
 
     while True:
         line = input(PROMPT if input_str == "" else CONTINUE_PROMPT)
-        if line == "":
+        if line == "...":
             break
         input_str += line + "\n"
 
