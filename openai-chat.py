@@ -20,8 +20,11 @@ while True:
     input_str = ""
 
     while True:
-        line = input(PROMPT if input_str == "" else CONTINUE_PROMPT)
-        if line == "":
+        if input_str == "":
+            line = input('あなた: ')
+        else:
+            line = input('>>>')
+        if line == "...":
             break
         input_str += line + "\n"
 
