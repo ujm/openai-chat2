@@ -3,13 +3,9 @@ import os
 import time
 import pickle
 
-api_key = os.environ['OPENAI_API_KEY']
-
-openai.api_key = api_key
-
 print('[終了するには \"ctrl+c\" と入力してください。]\n\n')
 message = {"role":"user", "content":""}
-conversation = [{"role": "system", "content": "日本語"}]
+conversation = [{"role": "system", "content": "ジャービスは優秀な執事です。返答は日本語で行います。"}]
 
 while True:
     input_str = ""
@@ -18,7 +14,7 @@ while True:
             line = input('あなた: ')
         else:
             line = input('>>>')
-        if line == "":
+        if line == "...":
             break
         input_str += line + "\n"
     # 最後の改行を削除
@@ -29,7 +25,7 @@ while True:
 
     while True:
         try:
-            completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=conversation)
+            completion = openai.ChatCompletion.create(model="ft:gpt-3.5-turbo-0613:personal::7qh0GGa8", messages=conversation)
             break
         except:
             time.sleep(5)
@@ -42,9 +38,7 @@ while True:
 
     print(len(conversation))
     print(f"アシスタント: {completion.choices[0].message.content}\n")
-    print('-------------------- total_tokens を表示--------------------')
-    print(completion.usage.total_tokens)
-
+    
     if(completion.usage.total_tokens == 4097) :
         del conversation[0]
         
