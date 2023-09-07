@@ -3,7 +3,7 @@ import os
 import time
 import pickle
 
-MODEL_NAME = "gpt-3.5-turbo-16k"
+MODEL_NAME = "ft:gpt-3.5-turbo-0613:personal::7vLG90yA"
 SLEEP_INTERVAL = 5
 PICKLE_FILE = 'my_array.pickle'
 PROMPT = 'あなた: '
@@ -14,7 +14,7 @@ EXIT_MESSAGE = '[終了するには "ctrl+c" と入力してください。]\n\n
 print(EXIT_MESSAGE)
 
 message = {"role":"user", "content":""}
-conversation = [{"role": "system", "content": "あなたは私の代わりに文章を作成します。"}]
+conversation = [{"role": "system", "content": "You are an assistant specialized in crafting business emails with the user's specific style."}]
 
 while True:
     input_str = ""

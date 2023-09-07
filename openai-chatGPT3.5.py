@@ -3,7 +3,7 @@ import os
 import time
 import pickle
 
-MODEL_NAME = "gpt-3.5-turbo-16k"
+MODEL_NAME = "gpt-3.5-turbo"
 SLEEP_INTERVAL = 5
 PICKLE_FILE = 'my_array.pickle'
 PROMPT = 'あなた: '
